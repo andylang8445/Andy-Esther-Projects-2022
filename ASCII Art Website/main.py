@@ -1,9 +1,9 @@
-from PIL import Image, ImageEnhance
+from PIL import Image, ImageOps
 
 
 brightness_dict = {0: '___', 1: '░░░', 2: '▒▒▒', 3: '▓▓▓', 4: '███'}
 
-img = Image.open("test4.jpg")
+img = ImageOps.exif_transpose(Image.open("test4.jpg")) # refer to https://pillow.readthedocs.io/en/latest/reference/ImageOps.html#PIL.ImageOps.exif_transpose
 img_data = img.getdata()
 img_lst = []
 for i in img_data:
